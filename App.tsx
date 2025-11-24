@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import CostInputForm from './components/CostInputForm';
 import ResultsDashboard from './components/ResultsDashboard';
-import AIAdvisor from './components/AIAdvisor';
 import { CostData, CalculationResult, AIAnalysisResult } from './types';
 import { analyzeProfitability } from './services/geminiService';
 import { Settings, RefreshCw, Trash2 } from 'lucide-react';
@@ -192,13 +191,7 @@ const App: React.FC = () => {
 
           {/* Right Column: Dashboard & AI (8/12) - Expands to full width when printing */}
           <div className="lg:col-span-8 xl:col-span-9 space-y-6 print:col-span-12 print:w-full">
-            
-            {/* AI Advisor Section */}
-            <AIAdvisor 
-              aiState={aiState} 
-              onAnalyze={handleAIAnalyze} 
-              canAnalyze={results.totalCost > 0 && formData.quantityKg > 0}
-            />
+          
 
             {/* Results Visualization */}
             <ResultsDashboard results={results} data={formData} />
